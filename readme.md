@@ -1,5 +1,5 @@
 # Linked List
-This is my implementaion of a linked list in Ruby.
+This is my implementation of a linked list in Ruby.
 
 ## Quick Example
 
