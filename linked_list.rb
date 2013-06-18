@@ -9,8 +9,10 @@ end
 
 class List
   attr_accessor :first
+  attr_reader :length
   
   def initialize(*items)
+    @length = items.length
     @first = Node.new(items.shift)
     items.each { |item| self.push(item) }
   end
@@ -29,12 +31,14 @@ class List
       end
     end
     current_node.next = node
+    @length += 1
     return self
   end
   
   # Removes last element from list
-  #returns that element's value
+  # returns that element's value
   def pop
+    raise "List is empty" if @length < 1
     current_node = @first
     done = false
     while !done
@@ -46,6 +50,7 @@ class List
     end
     to_return = current_node.next.value
     current_node.next = nil
+    @length -= 1
     return to_return
   end
   
@@ -54,14 +59,17 @@ class List
   def unshift(node)
     node = Node.new(node, @first)
     @first = node
+    @length += 1
     return self
   end
   
   # Removes first element from list
   # returns that element's value
   def shift
+    raise "List is empty" if @length < 1
     to_return = @first.value
     @first = @first.next
+    @length -= 1
     return to_return
   end
   
