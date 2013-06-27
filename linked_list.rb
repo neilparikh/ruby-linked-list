@@ -22,13 +22,8 @@ class List
   def push(value)
     node = Node.new(value)
     current_node = @first
-    done = false
-    while !done
-      if current_node.next == nil
-        done = true
-      else
-        current_node = current_node.next
-      end
+    while current_node.next != nil
+      current_node = current_node.next
     end
     current_node.next = node
     @length += 1
