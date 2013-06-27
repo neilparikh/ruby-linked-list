@@ -17,10 +17,10 @@ class List
     items.each { |item| self.push(item) }
   end
   
-  # adds node to end of list
+  # adds value to end of list
   # returns self
-  def push(node)
-    node = Node.new(node)
+  def push(value)
+    node = Node.new(value)
     current_node = @first
     done = false
     while !done
@@ -54,10 +54,10 @@ class List
     return to_return
   end
   
-  # adds node to beginning of list
+  # adds value to beginning of list
   # returns self
-  def unshift(node)
-    node = Node.new(node, @first)
+  def unshift(value)
+    node = Node.new(value, @first)
     @first = node
     @length += 1
     return self
